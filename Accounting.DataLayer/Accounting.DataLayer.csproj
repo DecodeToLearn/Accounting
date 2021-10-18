@@ -44,11 +44,7 @@
     <Compile Include="Context\AccountingContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ICustomerRepository.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="EntityFramework">
-      <Version>6.4.4</Version>
-    </PackageReference>
+    <Compile Include="Services\CustomerRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Accounting.Domain\Accounting.Domain.csproj">
@@ -56,6 +52,10 @@
       <Name>Accounting.Domain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <PackageReference Include="EntityFramework">
+      <Version>6.4.4</Version>
+    </PackageReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
