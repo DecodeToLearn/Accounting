@@ -13,17 +13,17 @@ using System.Windows.Forms;
 
 namespace Accounting.App
 {
-    public partial class Form1 : Form
+    public partial class frmMain : Form
     {
-        public Form1()
+        public frmMain()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void btnCustomers_Click(object sender, EventArgs e)
         {
-            UnitOfWork db = new UnitOfWork();
-            var list = db.CustomerRepository.GetAllCustomers();
+            frmCustomers frmCustomers = new frmCustomers();
+            frmCustomers.ShowDialog();
         }
     }
 }

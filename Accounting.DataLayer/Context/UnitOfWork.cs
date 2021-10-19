@@ -27,7 +27,7 @@ namespace Accounting.DataLayer.Context
         }
         public void Dispose()
         {
-            throw new NotImplementedException();
+            db.Dispose();
         }
     }
 }
