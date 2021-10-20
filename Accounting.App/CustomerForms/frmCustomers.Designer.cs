@@ -34,9 +34,14 @@ namespace Accounting.App
             this.btnEditCustomer = new System.Windows.Forms.ToolStripButton();
             this.btnDeleteCustomer = new System.Windows.Forms.ToolStripButton();
             this.btnRefreshCustomer = new System.Windows.Forms.ToolStripButton();
-            this.txtFilterCustomer = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.txtFilterCustomer = new System.Windows.Forms.ToolStripTextBox();
             this.dgvCustomers = new System.Windows.Forms.DataGridView();
+            this.CustomerId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerMobile = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).BeginInit();
             this.SuspendLayout();
@@ -65,6 +70,7 @@ namespace Accounting.App
             this.btnAddNewCustomer.Size = new System.Drawing.Size(90, 59);
             this.btnAddNewCustomer.Text = "New Customer";
             this.btnAddNewCustomer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnAddNewCustomer.Click += new System.EventHandler(this.btnAddNewCustomer_Click);
             // 
             // btnEditCustomer
             // 
@@ -85,6 +91,7 @@ namespace Accounting.App
             this.btnDeleteCustomer.Size = new System.Drawing.Size(99, 59);
             this.btnDeleteCustomer.Text = "Delete Customer";
             this.btnDeleteCustomer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnDeleteCustomer.Click += new System.EventHandler(this.btnDeleteCustomer_Click);
             // 
             // btnRefreshCustomer
             // 
@@ -95,12 +102,7 @@ namespace Accounting.App
             this.btnRefreshCustomer.Size = new System.Drawing.Size(50, 59);
             this.btnRefreshCustomer.Text = "Refresh";
             this.btnRefreshCustomer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // txtFilterCustomer
-            // 
-            this.txtFilterCustomer.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtFilterCustomer.Name = "txtFilterCustomer";
-            this.txtFilterCustomer.Size = new System.Drawing.Size(100, 62);
+            this.btnRefreshCustomer.Click += new System.EventHandler(this.btnRefreshCustomer_Click);
             // 
             // toolStripLabel1
             // 
@@ -108,14 +110,67 @@ namespace Accounting.App
             this.toolStripLabel1.Size = new System.Drawing.Size(42, 59);
             this.toolStripLabel1.Text = "Search";
             // 
+            // txtFilterCustomer
+            // 
+            this.txtFilterCustomer.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtFilterCustomer.Name = "txtFilterCustomer";
+            this.txtFilterCustomer.Size = new System.Drawing.Size(100, 62);
+            this.txtFilterCustomer.TextChanged += new System.EventHandler(this.txtFilterCustomer_TextChanged);
+            // 
             // dgvCustomers
             // 
+            this.dgvCustomers.AllowUserToAddRows = false;
+            this.dgvCustomers.AllowUserToDeleteRows = false;
+            this.dgvCustomers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCustomers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CustomerId,
+            this.CustomerFullName,
+            this.CustomerMobile,
+            this.CustomerEmail,
+            this.CustomerAddress});
             this.dgvCustomers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCustomers.Location = new System.Drawing.Point(0, 62);
             this.dgvCustomers.Name = "dgvCustomers";
+            this.dgvCustomers.ReadOnly = true;
             this.dgvCustomers.Size = new System.Drawing.Size(584, 299);
             this.dgvCustomers.TabIndex = 1;
+            // 
+            // CustomerId
+            // 
+            this.CustomerId.DataPropertyName = "CustomerID";
+            this.CustomerId.HeaderText = "ID";
+            this.CustomerId.Name = "CustomerId";
+            this.CustomerId.ReadOnly = true;
+            this.CustomerId.Visible = false;
+            // 
+            // CustomerFullName
+            // 
+            this.CustomerFullName.DataPropertyName = "FullName";
+            this.CustomerFullName.HeaderText = "FullName";
+            this.CustomerFullName.Name = "CustomerFullName";
+            this.CustomerFullName.ReadOnly = true;
+            // 
+            // CustomerMobile
+            // 
+            this.CustomerMobile.DataPropertyName = "Mobile";
+            this.CustomerMobile.HeaderText = "Mobile";
+            this.CustomerMobile.Name = "CustomerMobile";
+            this.CustomerMobile.ReadOnly = true;
+            // 
+            // CustomerEmail
+            // 
+            this.CustomerEmail.DataPropertyName = "Email";
+            this.CustomerEmail.HeaderText = "Email";
+            this.CustomerEmail.Name = "CustomerEmail";
+            this.CustomerEmail.ReadOnly = true;
+            // 
+            // CustomerAddress
+            // 
+            this.CustomerAddress.DataPropertyName = "Address";
+            this.CustomerAddress.HeaderText = "Address";
+            this.CustomerAddress.Name = "CustomerAddress";
+            this.CustomerAddress.ReadOnly = true;
             // 
             // frmCustomers
             // 
@@ -147,5 +202,10 @@ namespace Accounting.App
         private System.Windows.Forms.ToolStripTextBox txtFilterCustomer;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.DataGridView dgvCustomers;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerFullName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerMobile;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerAddress;
     }
 }
